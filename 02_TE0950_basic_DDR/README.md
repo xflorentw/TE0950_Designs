@@ -151,6 +151,4 @@ In Tera Term you will see the output from the Versal PLM then the Hello World me
 ![Tera Term](./img/2025.1_Tera_Term.jpg)
 
 
-<p class="sphinxhide" align="center"><sub>Copyright © 2025 Advanced Micro Devices, Inc</sub></p>
-
-<p class="sphinxhide" align="center"><sup><a href="https://www.amd.com/en/corporate/copyright">Terms and Conditions</a></sup></p>
+<p class="sphinxhide" align="center"><sub>Copyright © 2025 Florent Werbrouck</sub></p>
