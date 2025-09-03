@@ -15,6 +15,11 @@ The following table list the different designs/tutorials and the tool versions t
     <td align="center">2025.1</td>
     <td align="center">Basic design (no DDR) running baremetal</td>
  </tr>
+  <tr>
+    <td align="center"><a href="./02_TE0950_basic_DDR/">TE0950 Basic DDR</a></td>
+    <td align="center">2025.1</td>
+    <td align="center">Basic design (with DDR) running baremetal</td>
+ </tr>
  </table>
 
  
