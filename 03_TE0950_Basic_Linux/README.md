@@ -1,10 +1,10 @@
 # Minimal Linux System on Trenz TE0950 Board
 
-In this example we are using the desing from <a href="../02_TE0950_DDR/">02_TE0950_DDR</a> and building linux for this platform
+In this example we are using the desing from <a href="../02_TE0950_basic_DDR/">02_TE0950_DDR</a> and building linux for this platform
 
 ## 1. Vivado Project
 
-For steps to create the Vivado Design manually, refer to <a href="../02_TE0950_DDR/">02_TE0950_DDR</a>.
+For steps to create the Vivado Design manually, refer to <a href="../02_TE0950_basic_DDR/">02_TE0950_DDR</a>.
 
 > Note: The vivado project can be created by running `make vivado` from the 03_TE0950_Basic_Linux folder.
 
