@@ -25,6 +25,12 @@ The following table list the different designs/tutorials and the tool versions t
     <td align="center">2025.1</td>
     <td align="center">Basic design (with DDR) running Linux (built with Petalinux)</td>
  </tr>
+ <tr>
+    <td align="center"><a href="./04_AMD_Vivado_Custom_Configurable_Example/">AMD Vivado Custom Configurable Example Design</a></td>
+    <td align="center">2025.1</td>
+    <td align="center">Example of a Custom Configurable Example Design for AMD Vivado which can create
+      an extensible platform for custom boards for use in Vitis Acceleration flow</td>
+ </tr>
  </table>
 
  
