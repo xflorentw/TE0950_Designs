@@ -20,6 +20,11 @@ The following table list the different designs/tutorials and the tool versions t
     <td align="center">2025.1</td>
     <td align="center">Basic design (with DDR) running baremetal</td>
  </tr>
+ <tr>
+    <td align="center"><a href="./03_TE0950_Basic_Linux/">TE0950 Basic Linux</a></td>
+    <td align="center">2025.1</td>
+    <td align="center">Basic design (with DDR) running Linux (built with Petalinux)</td>
+ </tr>
  </table>
 
  
