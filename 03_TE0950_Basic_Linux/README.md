@@ -70,7 +70,7 @@ For steps to create the Vivado Design manually, refer to <a href="../02_TE0950_b
 10. On Widnows, use a tool to write SD Card such as Win32DiskImager and burn the SD Card using the `petalinux-sdimage.wic` SD Card image file which is located under `TE0950_basic_petalinux/images/linux`
 
 11. Insert the SD Card in the TE0950 board and ensure the boot mode is set to SD card
-   - S2 [1:3] - [OFF, ON, OFF] - JTAG Boot
+   - S2 [1:3] - [OFF, ON, OFF] - SD Boot
 
 12. Power On the TE0950 board
 
