@@ -1,0 +1,42 @@
+#
+# Copyright (C) 2025, Florent Werbrouck. All rights reserved.
+# SPDX-License-Identifier: MIT
+#
+
+# =========================================================
+# PROJECT NAME
+# =========================================================
+VIVADO_PROJECT_NAME ?= TE0950_basic_accel
+XSA_TCL ?= $(VIVADO_PROJECT_NAME).tcl
+ACCEL_TCL ?= TE0950_add_accel.tcl
+
+# =========================================================
+# DEVICE SELECTION
+# =========================================================
+DEVICE_NAME ?= xcve2302-sfva784-1LP-e-S
+
+# =========================================================
+#  BOARD PART SELECTION (Production)
+# =========================================================
+BOARD_VENDOR:=trenz.biz
+BOARD_LABEL:=te0950_23_1lse
+BOARD_VER:=1.2
+
+# =========================================================
+# BUILD PRODUCTS
+# ========================================================
+BUILD_DIR := build
+
+.PHONY: clean all
+##############
+# Build Flow #
+##############
+all: base_vivado
+	
+
+base_vivado:
+	vivado -mode batch -source $(XSA_TCL) -tclargs $(VIVADO_PROJECT_NAME) $(DEVICE_NAME) $(BOARD_VENDOR) $(BOARD_LABEL) $(BOARD_VER) $(BUILD_DIR)
+
+clean:
+	rm -rf $(BUILD_DIR)
+	rm -rf .Xil vivado* .crash*

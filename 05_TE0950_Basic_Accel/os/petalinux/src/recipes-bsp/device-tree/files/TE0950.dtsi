@@ -1,0 +1,88 @@
+/*------------------ eMMC --------------------*/
+&sdhci0 {
+	bus-width = <8>;
+};
+
+/*------------------ SD --------------------*/
+&sdhci1 {
+	no-1-8-v;
+};
+
+/*------------------ QSPI --------------------*/
+&qspi {
+	num-cs = <2>;
+
+	flash@0 {
+		compatible = "jedec,spi-nor";
+		reg = <0>, <1>;
+		parallel-memories = /bits/ 64 <0x8000000 0x8000000>; /* 128MB */
+		spi-rx-bus-width = <4>;
+		spi-tx-bus-width = <4>;
+		spi-max-frequency = <40000000>; //40MHz no feedback pin
+
+		#address-cells = <1>;
+		#size-cells = <1>;
+	};
+};
+
+/*------------------ GPIO MISC --------------------*/
+&gpio0 {
+	gpio-line-names = 
+		"", "", "", "", "", "", "", "", "", "",
+		"", "", "", "", "", "", "", "", "", "",
+		"", "", "LPD_MIO22", "";
+};
+&gpio1 {
+	gpio-line-names = 
+		"", "", "", "", "", "", "", "", "", "",
+		"", "", "", "", "", "", "", "", "", "",
+		"", "", "", "", "", "", "", "PMC_MIO27", "", "",
+		"", "", "", "", "", "", "", "USB_OC", "", "",
+		"", "", "", "", "", "", "", "", "", "",
+		"", "LED0", "", "", "", "", "", "", "", "";
+};
+
+
+/*------------------ USB --------------------*/
+&dwc3_0 {
+	dr_mode = "host";
+};
+
+/*------------------ I2C --------------------*/
+&i2c0 {
+	i2cswitch@70 { // Artix I2C MUX Emulations
+		compatible = "nxp,pca9548";
+		#address-cells = <1>;
+		#size-cells = <0>;
+		reg = <0x70>;
+		i2c-mux-idle-disconnect;
+ 
+		i2c_cruvi_hs1: i2c@0 { // CRUVI HS1 IIC
+			reg = <0>;
+		};
+		i2c_cruvi_hs2: i2c@1 { // CRUVI HS2IIC
+			reg = <1>;
+		};
+		i2c_qsfp: i2c@2 { // QSFP IIC
+			reg = <2>;
+		};
+		i2c_fmc: i2c@3 { // FMC IIC
+			reg = <3>;
+		};
+	};
+};
+
+&i2c2 {
+	status = "okay";
+  
+	eeprom: eeprom@50 {
+		compatible = "microchip,24aa025", "atmel,24c02";
+		reg = <0x50>;
+		
+		#address-cells = <1>;
+		#size-cells = <1>;
+		eth0_addr: eth-mac-addr@FA {
+			reg = <0xFA 0x06>;
+		};
+	};
+};
