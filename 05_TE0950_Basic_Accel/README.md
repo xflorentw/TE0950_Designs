@@ -300,7 +300,7 @@ In the build results, Vitis is generating an SD card image with the linux image 
 To burn the SD card I used Win32DiskImager on Widnows. As input I used the `sd_card.img` SD Card image file which is located under `05_TE0950_Basic_Accel/vitis/workspace/system_project/build/hw/package/package`.
 
 Once the SD card is ready we just have to insert it into the board and set the correct boot mode on the TE0950 board
-   - S2 [1:3] - [OFF, ON, OFF] - JTAG Boot
+   - S2 [1:3] - [OFF, ON, OFF] - SD Boot
 
 To check the output we can open a UART terminal (for example Tera Term) and connect to the COM port corresponding to the TE0950 board with the following settings
 - **Speed**: 115200
