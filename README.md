@@ -12,7 +12,7 @@ The following table list the different designs/tutorials and the tool versions t
  </tr>
  <tr>
     <td align="center"><a href="./01_TE0950_basic/">TE0950 Basic</a></td>
-    <td align="center">2025.1</td>
+    <td align="center">2025.2</td>
     <td align="center">Basic design (no DDR) running baremetal</td>
  </tr>
   <tr>
@@ -22,7 +22,7 @@ The following table list the different designs/tutorials and the tool versions t
  </tr>
  <tr>
     <td align="center"><a href="./03_TE0950_Basic_Linux/">TE0950 Basic Linux</a></td>
-    <td align="center">2025.1</td>
+    <td align="center">2025.2</td>
     <td align="center">Basic design (with DDR) running Linux (built with Petalinux)</td>
  </tr>
  <tr>

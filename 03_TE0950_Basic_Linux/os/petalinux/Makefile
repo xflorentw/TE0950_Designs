@@ -13,7 +13,7 @@ XSA_FILE 					?= $(VIVADO_PROJECT_NAME).xsa
 # =========================================================
 # PROJECT SETTINGS
 # =========================================================
-LINUX_TMP_DIR              ?= /tmp/${USER}/2025.1/${PETALINUX_PROJECT_NAME}/petalinux
+LINUX_TMP_DIR              ?= /tmp/${USER}/${PETALINUX_PROJECT_NAME}/petalinux
 CFG                        := ./src/config
 DTSI_FILES				   := \"file:\/\/system-user.dtsi file:\/\/TE0950.dtsi\"
 
