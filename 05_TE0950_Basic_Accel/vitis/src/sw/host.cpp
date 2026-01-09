@@ -1,10 +1,11 @@
 /*
-* Copyright (C) 2025 Florent Werbrouck. All Rights Reserved.
+* Copyright (C) 2025 - 2026 Florent Werbrouck. All Rights Reserved.
 * SPDX-License-Identifier: MIT
 */
 
 #include <fstream>
 #include <cstring>
+#include <iostream>
 
 #include "experimental/xrt_kernel.h"
 #include "experimental/xrt_graph.h"

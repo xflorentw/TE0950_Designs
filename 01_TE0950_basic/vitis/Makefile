@@ -1,13 +1,13 @@
 # MIT License
 #
-# Copyright (c) 2025 Florent Werbrouck
+# Copyright (c) 2025 - 2026 Florent Werbrouck
 #
 
 # =========================================================
 # PROJECT NAME
 # =========================================================
 PROJECT_NAME ?= TE0950_basic
-PROJECT_VERSION ?= 2025_1_0
+PROJECT_VERSION ?= 2025_2_0
 VITIS_PLATFORM ?= $(PROJECT_NAME)_$(PROJECT_VERSION)
 XSA_FILE ?= $(PROJECT_NAME).xsa
 

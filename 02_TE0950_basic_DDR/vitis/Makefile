@@ -7,7 +7,7 @@
 # PROJECT NAME
 # =========================================================
 PROJECT_NAME ?= TE0950_basic_DDR
-PROJECT_VERSION ?= 2025_1_0
+PROJECT_VERSION ?= 2025_2_0
 VITIS_PLATFORM ?= $(PROJECT_NAME)_$(PROJECT_VERSION)
 XSA_FILE ?= $(PROJECT_NAME).xsa
 

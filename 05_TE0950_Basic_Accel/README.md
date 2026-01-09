@@ -13,7 +13,7 @@ An acceleration platform is a platform for which you create a base Vivado design
 
 ## 2. AMD Vivado™ Project
 
-The first step is to create the AMD Vivado (2025.1) project based on the custom Configurable Example Design.
+The first step is to create the AMD Vivado (2025.2) project based on the custom Configurable Example Design.
 
 We first have to make sure we are adding the example design to the repo path of Vivado. For this we can add the following line to the Vivado_init.tcl located under ~/.Xilinx/Vivado (you can create one with a text editor if it does not exist)
 
@@ -322,4 +322,4 @@ We can see the application running successfully which means that we have correct
 
    ![missing image](img/251_app_run.jpg)
 
-<p class="sphinxhide" align="center"><sub>Copyright © 2025 Florent Werbrouck</sub></p>
+<p class="sphinxhide" align="center"><sub>Copyright © 2025 - 2026 Florent Werbrouck</sub></p>

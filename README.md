@@ -27,16 +27,16 @@ The following table list the different designs/tutorials and the tool versions t
  </tr>
  <tr>
     <td align="center"><a href="./04_AMD_Vivado_Custom_Configurable_Example/">AMD Vivado Custom Configurable Example Design</a></td>
-    <td align="center">2025.1</td>
+    <td align="center">2025.2</td>
     <td align="center">Example of a Custom Configurable Example Design for AMD Vivado which can create
       an extensible platform for custom boards for use in Vitis Acceleration flow</td>
  </tr>
   <tr>
     <td align="center"><a href="./05_TE0950_Basic_Accel/">TE0950 Basic Acceleration</a></td>
-    <td align="center">2025.1</td>
+    <td align="center">2025.2</td>
     <td align="center">Example of a Vitis Acceleration on TE0950 including AIE + PS + HLS kernels</td>
  </tr>
  </table>
 
  
-<p class="sphinxhide" align="center"><sub>Copyright © 2025 Florent Werbrouck</sub></p>
+<p class="sphinxhide" align="center"><sub>Copyright © 2025 - 2026 Florent Werbrouck</sub></p>
