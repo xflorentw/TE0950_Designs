@@ -1,6 +1,6 @@
 # MIT License
 #
-# Copyright (c) 2025 Florent Werbrouck
+# Copyright (c) 2025 - 2026 Florent Werbrouck
 #
 
 ## ===================================================================================

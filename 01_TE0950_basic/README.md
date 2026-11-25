@@ -30,6 +30,8 @@ In this first section we are creating a minimal Vivado project which will only i
 
 8. In the Flow navigator, click on **Generate Device Image**
 
+9. Click **File** > **Export** > **Export Hardware**. In the Export Hardware window, select **Include Device Image**, then choose a name for the XSA and click finish.
+
 > Note: The vivado project can be created by running **make vivado** from the 01_TE0950_basic folder
 
 ## 3. Vitis Workspace

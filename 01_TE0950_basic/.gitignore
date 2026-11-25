@@ -1,0 +1,5 @@
+*.jou
+vitis/.Xil/
+vitis/workspace/
+*.log
+vivado/build/
