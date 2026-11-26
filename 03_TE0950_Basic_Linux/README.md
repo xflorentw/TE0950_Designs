@@ -1,6 +1,11 @@
 # Minimal Linux System on Trenz TE0950 Board
 
-In this example we are using the desing from <a href="../02_TE0950_basic_DDR/">02_TE0950_DDR</a> and building linux for this platform
+> [!WARNING]
+> **PetaLinux 2026.2 is the last version of PetaLinux.** AMD is moving embedded Linux development to the **Embedded Development Framework (EDF)**. Please plan to migrate your designs to the EDF flow.
+>
+> A project using the EDF flow for the TE0950 will be created soon in this repository.
+
+In this example we are using the design from <a href="../02_TE0950_basic_DDR/">02_TE0950_DDR</a> and building Linux using PetaLinux 2026.2 for this platform
 
 ## 1. Vivado Project
 
@@ -10,6 +15,8 @@ For steps to create the Vivado Design manually, refer to <a href="../02_TE0950_b
 
 ## 2. Petalinux Project
 
+> Note: The complete PetaLinux flow described below (steps 1 to 9) can be run automatically with `make petalinux` from the 03_TE0950_Basic_Linux folder (or `make all` to build the Vivado design first). The Vivado/Vitis 2026.2 environment (for `sdtgen`) and the PetaLinux 2026.2 environment must both be sourced.
+
 1. Create a petalinux project with Versal template using the following command
 
 `petalinux-create project --template versal --name TE0950_basic_petalinux`
@@ -18,11 +25,19 @@ For steps to create the Vivado Design manually, refer to <a href="../02_TE0950_b
 
 `cd TE0950_basic_petalinux`
 
-3. Import the hardware configuration using the XSA
+3. Generate the System Device Tree (SDT) from the XSA, then import it
 
-`petalinux-config --get-hw-description TE0950_Designs/03_TE0950_Basic_Linux/vivado/build/TE0950_basic_DDR.xsa`
+   > Note: Starting with 2026.2, PetaLinux no longer accepts an XSA as hardware description. A System Device Tree (SDT) must be generated from the XSA with `sdtgen`, which is provided with Vitis.
 
-4. In the petalinux configuration wizard, under `Image Packaging Configuration`, change the following settings to let PetaLinux generate EXT4 rootfs.
+   1. From the 03_TE0950_Basic_Linux/os/petalinux folder, generate the SDT (with the Vitis 2026.2 environment sourced)
+
+   `sdtgen -xsa ../../vivado/build/TE0950_basic_DDR.xsa -dir sdt`
+
+   2. In the petalinux project directory, import the SDT
+
+   `petalinux-config --get-hw-description <path_to>/03_TE0950_Basic_Linux/os/petalinux/sdt`
+
+4. In the petalinux configuration wizard (opened by the command above, or by running `petalinux-config`), under `Image Packaging Configuration`, change the following settings to let PetaLinux generate EXT4 rootfs.
    1. Set `Root File System Type` to `EXT4`
 
    2. Set `Root filesystem formats` to `ext4 tar.gz`
@@ -47,11 +62,11 @@ For steps to create the Vivado Design manually, refer to <a href="../02_TE0950_b
    1. Copy the file from `03_TE0950_Basic_Linux/os/petalinux/src/recipes-bsp/device-tree/files/TE0950.dtsi` to `TE0950_basic_petalinux/project-spec/meta-user/recipes-bsp/device-tree/files`
 
    2. Open the file `TE0950_basic_petalinux/project-spec/meta-user/recipes-bsp/device-tree/device-tree.bbappend` and change the following line
-   `SRC_URI:append = "file://system-user.dtsi"`
+   `SRC_URI:append = " file://system-user.dtsi"`
    to
-   `SRC_URI:append = "file://system-user.dtsi file://TE0950.dtsi"`
+   `SRC_URI:append = " file://system-user.dtsi file://TE0950.dtsi"`
 
-   3.  Open the file `TE0950_basic_petalinux/project-spec/meta-user/recipes-bsp/device-tree/files/system-user.dtsi` and add the following line at the top of the file:
+   3.  Open the file `TE0950_basic_petalinux/project-spec/meta-user/recipes-bsp/device-tree/files/system-user.dtsi` and add the following line after the line `/include/ "system-conf.dtsi"`:
    `/include/ "TE0950.dtsi"`
 
 
@@ -67,7 +82,7 @@ For steps to create the Vivado Design manually, refer to <a href="../02_TE0950_b
 
 `petalinux-package wic`
 
-10. On Widnows, use a tool to write SD Card such as Win32DiskImager and burn the SD Card using the `petalinux-sdimage.wic` SD Card image file which is located under `TE0950_basic_petalinux/images/linux`
+10. On Windows, use a tool to write SD Card such as Win32DiskImager and burn the SD Card using the `petalinux-sdimage.wic` SD Card image file which is located under `TE0950_basic_petalinux/images/linux`
 
 11. Insert the SD Card in the TE0950 board and ensure the boot mode is set to SD card
    - S2 [1:3] - [OFF, ON, OFF] - SD Boot
@@ -85,4 +100,4 @@ You will see Linux booting correctly up to the linux prompt
 ![Linux Boot](./img/linux.jpg)
 
 
-<p class="sphinxhide" align="center"><sub>Copyright © 2025 Florent Werbrouck</sub></p>
+<p class="sphinxhide" align="center"><sub>Copyright © 2025 - 2026 Florent Werbrouck</sub></p>

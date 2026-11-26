@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2025, Florent Werbrouck. All rights reserved.
+# Copyright (C) 2025 - 2026, Florent Werbrouck. All rights reserved.
 # SPDX-License-Identifier: MIT
 #
 

@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2025, Florent Werbrouck. All rights reserved.
+# Copyright (C) 2025 - 2026, Florent Werbrouck. All rights reserved.
 # SPDX-License-Identifier: MIT
 #
 
@@ -10,7 +10,9 @@
 ##############
 # Build Flow #
 ##############
-.PHONY: clean help all vivado vitis
+.PHONY: clean help all vivado petalinux
+
+ECHO := @echo
 
 help::
 	$(ECHO) "Makefile Usage:"
@@ -19,10 +21,10 @@ help::
 	$(ECHO) ""
 	$(ECHO) "  make petalinux"
 	$(ECHO) "      Builds the petalinux project"
-	$(ECHO) "      * Depends on vivado rule to be completed"
+	$(ECHO) "      * Depends on the vivado rule to be completed"
 	$(ECHO) ""
 	$(ECHO) "  make all"
-	$(ECHO) "      Generate the full project
+	$(ECHO) "      Generate the full project"
 	$(ECHO) ""
 	$(ECHO) "  make clean"
 	$(ECHO) "      Command to remove all the generated files."

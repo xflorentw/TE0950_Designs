@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2025, Florent Werbrouck. All rights reserved.
+# Copyright (C) 2025 - 2026, Florent Werbrouck. All rights reserved.
 # SPDX-License-Identifier: MIT
 #
 
@@ -15,7 +15,7 @@ XSA_FILE 					?= $(VIVADO_PROJECT_NAME).xsa
 # =========================================================
 LINUX_TMP_DIR              ?= /tmp/${USER}/${PETALINUX_PROJECT_NAME}/petalinux
 CFG                        := ./src/config
-DTSI_FILES				   := \"file:\/\/system-user.dtsi file:\/\/TE0950.dtsi\"
+DTSI_FILES				   := \" file:\/\/system-user.dtsi file:\/\/TE0950.dtsi\"
 
 # =========================================================
 # SOURCE DIRECTORIES
@@ -25,6 +25,9 @@ CURR_DIR                   := $(shell pwd)
 PROJ_DIR                   := ${CURR_DIR}/${PETALINUX_PROJECT_NAME}
 FILE_MAIN_CFG              := ${PROJ_DIR}/project-spec/configs/config
 XSA_DIR                    := ${CURR_DIR}/../../vivado/build
+XSA_PATH                   := ${XSA_DIR}/${XSA_FILE}
+# PetaLinux 2026.2 no longer accepts an XSA: a System Device Tree (SDT) is generated with sdtgen (Vitis)
+SDT_DIR                    := ${CURR_DIR}/sdt
 SRC_DIR_DEVICE_TREE        := ./src/recipes-bsp/device-tree/files
 DEST_DIR_DEVICE_TREE       := ${PROJ_DIR}/project-spec/meta-user/recipes-bsp/device-tree/files
 
@@ -32,13 +35,17 @@ DEST_DIR_DEVICE_TREE       := ${PROJ_DIR}/project-spec/meta-user/recipes-bsp/dev
 ##############
 # Build Flow #
 ##############
-all: create update_config update_device_tree build_proj package sd_card
+all: sdt create update_config update_device_tree build_proj package sd_card
+
+sdt:
+	rm -rf ${SDT_DIR}
+	sdtgen -xsa ${XSA_PATH} -dir ${SDT_DIR}
 
 create:
 	petalinux-create project --template versal --name $(PETALINUX_PROJECT_NAME) --tmpdir ${LINUX_TMP_DIR}
 
 update_config:
-	cd $(PETALINUX_PROJECT_NAME) && petalinux-config --get-hw-description=${XSA_DIR} --silentconfig
+	cd $(PETALINUX_PROJECT_NAME) && petalinux-config --get-hw-description=${SDT_DIR} --silentconfig
 	${CFG} --file ${FILE_MAIN_CFG}  --set-str CONFIG_SUBSYSTEM_RFS_FORMATS "tar.gz ext4"
 	${CFG} --file ${FILE_MAIN_CFG}   --keep-case --disable CONFIG_SUBSYSTEM_ROOTFS_INITRAMFS
 	${CFG} --file ${FILE_MAIN_CFG}   --keep-case --enable CONFIG_SUBSYSTEM_ROOTFS_EXT4
@@ -62,4 +69,4 @@ sd_card:
 	cd $(PETALINUX_PROJECT_NAME) && petalinux-package wic
 
 clean:
-	rm -rf $(PETALINUX_PROJECT_NAME) ${LINUX_TMP_DIR}
+	rm -rf $(PETALINUX_PROJECT_NAME) ${LINUX_TMP_DIR} ${SDT_DIR}

@@ -1,0 +1,7 @@
+*.jou
+*.log
+vivado/build/
+# PetaLinux flow
+os/petalinux/.Xil/
+os/petalinux/sdt/
+os/petalinux/TE0950_basic_petalinux/
