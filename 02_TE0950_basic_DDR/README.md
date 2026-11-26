@@ -5,9 +5,11 @@ In this design we are exploring the creation of a minimal system running a Barem
 The design is an addition of the one created in 01_TE0950_basic
 
 ## 2. Vivado Project
-In this first section we are creating a minimal Vivado project which will only include the CIPS.
+In this first section we are creating a minimal Vivado project which will only include the CIPS and the NoC with a memory controller to the DDR.
 
 1. Create a new Vivado project targeting the TE0950. You can get the board files from Trenz ( [TE Board Part Files - Public Docs - Trenz Electronic Wiki](https://wiki.trenz-electronic.de/display/PD/TE+Board+Part+Files))
+
+> Note: There is an issue in the Trenz board file which produces a DRC error in 2026.2. Error and fix are repported on [Trenz Forums](https://forum.trenz-electronic.de/index.php/topic,2954.msg11328.html)
 
 2. Create a block design
 
@@ -141,4 +143,4 @@ In Tera Term you will see the output from the Versal PLM then the Hello World me
 ![Tera Term](./img/2025.1_Tera_Term.jpg)
 
 
-<p class="sphinxhide" align="center"><sub>Copyright © 2025 Florent Werbrouck</sub></p>
+<p class="sphinxhide" align="center"><sub>Copyright © 2025 - 2026 Florent Werbrouck</sub></p>

@@ -1,4 +1,4 @@
-# TE0950 Designs V0.2
+# TE0950 Designs V0.3
 
 This repository contains designs and tutorial running on the Trenz TE0950 board showcasing a Versal Edge VE2302 device.
 
@@ -12,12 +12,12 @@ The following table list the different designs/tutorials and the tool versions t
  </tr>
  <tr>
     <td align="center"><a href="./01_TE0950_basic/">TE0950 Basic</a></td>
-    <td align="center">2025.2</td>
+    <td align="center">2026.2</td>
     <td align="center">Basic design (no DDR) running baremetal</td>
  </tr>
   <tr>
     <td align="center"><a href="./02_TE0950_basic_DDR/">TE0950 Basic DDR</a></td>
-    <td align="center">2025.2</td>
+    <td align="center">2026.2</td>
     <td align="center">Basic design (with DDR) running baremetal</td>
  </tr>
  <tr>

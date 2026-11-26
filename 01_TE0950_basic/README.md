@@ -131,4 +131,4 @@ In Tera Term you will see the output from the Versal PLM then the Hello World me
 
 ![Tera Term](./img/2025.1_tera_term_out.jpg)
 
-<p class="sphinxhide" align="center"><sub>Copyright © 2025 Florent Werbrouck</sub></p>
+<p class="sphinxhide" align="center"><sub>Copyright © 2025 - 2026 Florent Werbrouck</sub></p>
